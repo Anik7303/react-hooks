@@ -1,0 +1,55 @@
+.app {
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    background-color: #eee;
+    width: 80%;
+    min-width: 30rem;
+    max-width: 50rem;
+}
+
+.form div {
+    width: 100%;
+    padding: 1rem;
+}
+
+.form div input {
+    width: 100%;
+    padding: 0.8rem 1.6rem;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    background-color: white;
+}
+
+.form div input:focus {
+    outline: none;
+}
+
+.form div button {
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.form div button:hover,
+.form div button:active {
+    background-color: #eaeaea;
+}
+
+.form div button:focus {
+    outline: none;
+    background-color: #dadada;
+}
