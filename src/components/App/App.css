@@ -4,14 +4,26 @@
     min-height: 100vh;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+}
+
+.btn {
+    color: inherit;
+    background: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.1);
 }
 
 .form {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     padding: 3rem;
-    background-color: #eee;
+    background-color: lightblue;
     width: 80%;
     min-width: 30rem;
     max-width: 50rem;

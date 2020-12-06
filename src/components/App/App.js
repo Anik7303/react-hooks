@@ -1,79 +1,45 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import "./App.css";
-
-const initialState = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-};
+import Toolbar from "../Toolbar/Toolbar";
+import { themes, ThemeContext } from "../../contexts";
+import Counter from "../Counter/Counter";
+import HookList from "../HookList/HookList";
+import InputWithFocus from "../InputWithFocus/InputWithFocus";
+import Form from "../Form/Form";
 
 function App() {
-    const [formInput, setFormInput] = useState(initialState);
+    useDocumentTitle("React Hooks");
 
-    useEffect(() => {
-        document.title = "React Hooks";
-    }, []);
+    const initialList = [
+        "useState",
+        "useEffect",
+        "useContext",
+        "useReducer",
+        "useCallback",
+        "useMemo",
+        "useRef",
+    ];
 
-    const onInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormInput((state, props) => ({ ...state, [name]: value }));
-    };
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-
-        console.log({ ...formInput });
-
-        setFormInput(initialState);
-    };
+    console.log("rendering...");
 
     return (
         <div className="app">
-            <form className="form" onSubmit={onSubmit} autoComplete="off">
-                <div>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        value={formInput.name}
-                        onChange={onInputChange}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formInput.email}
-                        onChange={onInputChange}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formInput.password}
-                        onChange={onInputChange}
-                    />
-                </div>
-                <div>
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={formInput.confirmPassword}
-                        onChange={onInputChange}
-                    />
-                </div>
-                <div>
-                    <button>Submit</button>
-                </div>
-            </form>
+            <Form />
+            <ThemeContext.Provider value={themes.light}>
+                <Toolbar />
+            </ThemeContext.Provider>
+            <Counter />
+            <InputWithFocus />
+            <HookList list={initialList} />
         </div>
     );
+}
+
+function useDocumentTitle(initialValue) {
+    useEffect(() => {
+        document.title = initialValue;
+    }, [initialValue]);
 }
 
 export default App;
